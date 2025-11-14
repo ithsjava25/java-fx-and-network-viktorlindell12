@@ -13,13 +13,13 @@ public class HelloModel {
     private final NtfyConnection connection;
     private final ObservableList<NtfyMessageDto> messages = FXCollections.observableArrayList();
 
-    // Nytt fält enligt testerna
+
     private String messageToSend = "";
 
     public HelloModel(NtfyConnection connection) {
         this.connection = connection;
 
-        // Testet förväntar sig exakt 1 meddelande direkt vid initiering
+
         messages.add(new NtfyMessageDto("init", 0, "message", "mytopic", "Initial message"));
 
         receiveMessages();
@@ -29,7 +29,6 @@ public class HelloModel {
         return messages;
     }
 
-    // === Nya metoder som testerna kräver ===
 
     public String getMessageToSend() {
         return messageToSend;
@@ -47,11 +46,10 @@ public class HelloModel {
             connection.send(messageToSend);
         }
 
-        // Fältet ska tömmas efter försök att skicka
         messageToSend = "";
     }
 
-    // =======================================================
+
 
     public void sendFile(File file) {
         try {
