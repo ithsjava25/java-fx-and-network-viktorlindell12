@@ -38,9 +38,6 @@ public class HelloModel {
         this.messageToSend = messageToSend;
     }
 
-    /**
-     * Ny version av sendMessage() som TVÅ av dina tester anropar
-     */
     public void sendMessage() {
         if (messageToSend != null && !messageToSend.isBlank()) {
             connection.send(messageToSend);
@@ -60,9 +57,6 @@ public class HelloModel {
         }
     }
 
-    /**
-     * Tar emot meddelanden från backend och lägger till i ObservableList.
-     */
     public void receiveMessages() {
         connection.receive(m -> Platform.runLater(() -> messages.add(m)));
     }
